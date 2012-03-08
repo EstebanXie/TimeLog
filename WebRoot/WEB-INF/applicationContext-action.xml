@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+ 	<bean id="unhandledExceptionHandlerAction" class="tig.timelog.action.ExceptionHandlerAction"/>
+ 	<bean id="baseFileAction" class="tig.timelog.file.action.BaseFileAction" scope="prototype">
+ 	   <property name="taskImportService">
+            <ref bean="taskImportService"/>
+       </property>
+ 	</bean>
+    <bean id="systemMgmtAction" class="tig.timelog.action.SystemMgmtAction" scope="prototype">
+        <property name="userService">
+            <ref bean="userService"/>
+        </property>
+        
+        <property name="sysMgmtSerivce">
+            <ref bean="sysMgmtSerivce"/>
+        </property>
+        
+        <property name="dataMgmtService">
+            <ref bean="dataMgmtService"/>
+        </property>
+
+        <property name="codeTableService">
+            <ref bean="codeTableService"/>
+        </property>
+    </bean>
+    
+   <bean id="dataMgmtAction" class="tig.timelog.action.DataMgmtAction" scope="prototype">
+        <property name="dataMgmtService">
+            <ref bean="dataMgmtService"/>
+        </property>
+        
+        <property name="codeTableService">
+            <ref bean="codeTableService"/>
+        </property>
+   </bean> 
+   
+    
+   <bean id="systemQueryAction" class="tig.timelog.action.SystemQueryAction" scope="prototype">
+        <property name="userService">
+            <ref bean="userService"/>
+        </property>
+        <property name="codeTableService">
+            <ref bean="codeTableService"/>
+        </property>
+        <property name="systemQueryService">
+            <ref bean="systemQueryService"/>
+        </property>
+    </bean>
+    
+     <bean id="jsonAction" class="tig.timelog.action.JsonAction" scope="prototype">
+        <property name="codeTableService">
+            <ref bean="codeTableService"/>
+        </property>
+    </bean>
+    
+    <!-- project start -->
+    <bean id="projectMgmtAction" class="tig.timelog.action.ProjectMgmtAction" scope="prototype">
+        <property name="projectMgmtService">
+            <ref bean="projectMgmtService"/>
+        </property>
+        <property name="codeTableService">
+            <ref bean="codeTableService"/>
+        </property>
+    </bean>
+    
+    <!-- project end -->
+    <bean id="clientMgmtAction" class="tig.timelog.action.EZClientMgmtAction" scope="prototype">
+        <property name="clientService">
+            <ref bean="clientMgmtService"/>
+        </property>
+    </bean>
+</beans>

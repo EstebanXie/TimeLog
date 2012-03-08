@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<script type="text/javascript" src="js/jquery.js"></script>  
+<title>demo about table</title>  
+<script>  
+    $(document).ready(function(){   
+    for(var i=0;i<5;i++){//默认是5个文本框   
+        var $table=$("#tab tr");   
+        var len=$table.length;   
+        $("#tab").append("<tr id="+(len+1)+"><td>工程师 "+(len+1)+": <input type='text' class='required' name='eng"+len+"' id='"+len+"'><a href='#' onclick='deltr("+(len+1)+")'>删除</a></td></tr>");   
+    }      
+    $("#but").click(function(){//点击add按钮，可以添加输入框   
+        var $table=$("#tab tr");   
+        var len=$table.length;   
+        $("#tab").append("<tr id="+(len+1)+"><td>工程师 "+(len+1)+": <input type='text' class='required' name='eng"+len+"' id='"+len+"'><a href='#' onclick='deltr("+(len+1)+")'>删除</a></td></tr>");            
+    })   
+});   
+function deltr(index){//删除文本框   
+    $table=$("#tab tr");   
+    if(index>$table.length)   
+        return false;   
+    else{   
+        $("tr[id='"+index+"']").remove();   
+        for(var temp=index+1;temp<=$table.length;temp++){   
+            $("tr[id='"+temp+"']").replaceWith("<tr id="+(temp-1)+"><td>工程师 "+(temp-1)+": <input type='text' class='required' name='eng"+(temp-2)+"' id='"+(temp-2)+"' value='"+document.getElementById(temp-1).value+"'><a href='#' onclick='deltr("+(temp-1)+")'>删除</a></td></tr>");   
+        }   
+    }   
+    
+    return false;
+}   
+</script>  
+</head>  
+  
+<body>  
+<table>  
+<tr><td>  
+    <table id="tab" border="1" width="300px" align="center"></table>  
+</td></tr>  
+<tr><td>  
+    <input type="button" id="but" value="add"/>  
+</td></tr>  
+</table>  
+  
+  
+</body>  
+</html>
+
+
+
+<html>  
+<head>  
+<META http-equiv=Content-Type content="text/html; charset=utf-8">  
+<script type="text/javascript" src="JQuery/jquery-1.3.2.js"></script>  
+<script>  
+(function($){   
+$.fn.selInit = function(){return $(this).html("<option>请选择</option>");};   
+$.area = function(){   
+    $("#province").selInit();   
+    $("#city").selInit();   
+    $("#county").selInit();   
+    var area = {   
+        北京:{北京:"东城,西城,海淀,宣武,丰台"},   
+        江苏:{南京:"江宁,六合,下关,浦口",无锡:"北塘,滨湖,江阴,宜兴"},   
+        山东:{菏泽:"鄄城,牡丹区",济南:"济南a,济南b"}   
+        //...   
+    };   
+    $.each(area,function(p){$("#province").append("<option>"+p+"</option>");});   
+    $("#province").change(function(){   
+        $("#city").selInit();   
+        $("#county").selInit();   
+        $.each(area,function(p,x){   
+            if($("#province option:selected").text() == p){   
+                $.each(x,function(c,cx){   
+                    $("#city").append("<option>"+c+"</option>");   
+                });   
+                $("#city").bind("change",function(){   
+                    $("#county").selInit();   
+                    $.each(x,function(c,cx){   
+                        if($("#city option:selected").text() == c){   
+                                $.each(cx.split(","),function(){   
+                                    $("#county").append("<option>"+this+"</option>");   
+                                });   
+                            }   
+                    });   
+                });   
+            }   
+        });   
+    });   
+};   
+})(jQuery);   
+$(function(){   
+    $("select").css("width","100px");   
+    $.area();   
+    });   
+</script>  
+</head>  
+<body>  
+    <select id="province"><option>请选择</option></select>  
+       <select id="city"><option>请选择</option></select>  
+       <select id="county"><option>请选择</option></select>  
+</body>  
+</html>  

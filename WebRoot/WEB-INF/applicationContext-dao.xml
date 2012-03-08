@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<bean id="baseDao" abstract="true" class="tig.timelog.dao.impl.BaseDao">
+		<property name="dataSource">
+			<ref bean="dataSource"></ref>
+    	</property>
+	</bean>
+
+	<bean id="userDao" class="tig.timelog.dao.impl.UserDaoImpl" parent="baseDao"/>
+	
+	<bean id="sysMgmtDao" class="tig.timelog.dao.impl.SystemMgmtDaoImpl" parent="baseDao"/>
+	
+	<bean id="codeTableDao" class="tig.timelog.dao.impl.CodeTableDaoImpl" parent="baseDao"/>
+	
+	<bean id="dataMgmtDao" class="tig.timelog.dao.impl.DataMgmtDaoImpl" parent="baseDao"/>	
+	
+	<bean id="systemQueryDao" class="tig.timelog.dao.impl.SystemQueryDaoImpl" parent="baseDao"/>
+	
+	<!-- project start-->
+	<bean id="projectMgmtDao" class="tig.timelog.dao.impl.ProjectMgmtDaoImpl" parent="baseDao"/>
+	
+	<!-- project end-->
+	<bean id="clientMgmtDao" class="tig.timelog.dao.impl.EZClientDaoImpl" parent="baseDao"/>
+	
+	<bean id="taskImportDao" class="tig.timelog.dao.impl.TaskImportDaoImpl" parent="baseDao"/>
+
+</beans>

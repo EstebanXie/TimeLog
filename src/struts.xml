@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.i18n.encoding" value="GBK"/>
+	<constant name="struts.custom.i18n.resources" value="tigTimeLog"/>
+     
+	 <package name="exceptionHandler" extends="struts-default">
+        <global-results>
+            <result name="exceptionAction" type="chain">
+                <param name="actionName">unhandledExceptionHandler</param>
+            </result>
+            <result name="loginFail">/jsp/login.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="exceptionAction"/>
+        </global-exception-mappings>
+
+        <action name="unhandledExceptionHandler" class="unhandledExceptionHandlerAction">
+            <result name="exception" type="redirect">/jsp/error.jsp?view=error</result>
+        </action>
+    </package>
+	
+
+	<include file="resource/systemMgmt.xml"/>
+	<include file="resource/systemQuery.xml"/>
+	<include file="resource/dataMgmt.xml"/>
+	<!-- project start -->
+	<include file="resource/projectMgmt.xml"/>
+	
+	<!-- project end -->
+	<include file="resource/clientMgmt.xml"/>
+</struts>

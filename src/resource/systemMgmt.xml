@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="user" namespace="/user" extends="exceptionHandler">
+        <action name="login" class="systemMgmtAction" method="login">
+            <result name="success" type="redirect">/jsp/index.jsp</result>
+        </action>
+        <action name="logout" class="systemMgmtAction" method="logout">
+            <result name="success" type="redirect">/jsp/login.jsp</result>
+        </action>
+        <action name="listAllUsers" class="systemMgmtAction"
+                method="listAllUsers">
+            <result name="success">/jsp/systemMgmt/listAllUsers.jsp</result>
+        </action>
+        <action name="toAddModifyUser" class="systemMgmtAction"
+                method="initUser">
+            <result>/jsp/systemMgmt/addModifyUser.jsp</result>
+        </action>
+        <action name="addModifyUser" class="systemMgmtAction"
+                method="addModifyUser">
+            <result name="success" type="chain">listAllUsers</result>
+        </action>
+        <action name="deleteUser" class="systemMgmtAction" method="deleteUser">
+            <result name="success" type="chain">listAllUsers</result>
+        </action>
+    </package>
+    
+    
+    
+    <package name="sysMgmt" namespace="/sysMgmt" extends="exceptionHandler">
+        <action name="toInsuranceMgmtPage" class="systemMgmtAction">
+            <result name="success" type="dispatcher">/jsp/systemMgmt/insuranceMgmt.jsp</result>
+        </action>
+        <!--Role Management Start-->
+        <action name="listAllRoles" class="systemMgmtAction"
+                method="listAllRoles">
+            <result name="success">/jsp/systemMgmt/listAllRoles.jsp</result>
+        </action>
+        <action name="toAddModifyRole" class="systemMgmtAction"
+                method="initRole">
+            <result name="success" type="dispatcher">/jsp/systemMgmt/addModifyRole.jsp</result>
+        </action>
+        <action name="addModifyRole" class="systemMgmtAction"
+                method="addModifyRole">
+            <result name="success" type="chain">listAllRoles</result>
+        </action>
+        <action name="deleteRole" class="systemMgmtAction" method="deleteRole">
+            <result name="success" type="chain">listAllRoles</result>
+        </action>
+        <!--Role Management End-->
+        <!--Relation Amount Management Start-->
+        <action name="listAllRelationAmounts" class="systemMgmtAction"
+                method="listAllRelationAmounts">
+            <result name="success">/jsp/systemMgmt/listAllRelationAmounts.jsp</result>
+        </action>
+        <action name="toAddModifyRelationAmount" class="systemMgmtAction"
+                method="initRelationAmount">
+            <result name="success" type="dispatcher">/jsp/systemMgmt/addModifyRelationAmount.jsp</result>
+        </action>
+        <action name="addModifyRelationAmount" class="systemMgmtAction"
+                method="addModifyRelationAmount">
+            <result name="success" type="chain">listAllRelationAmounts</result>
+            <result name="agtReltAmtExist" type="dispatcher">/jsp/systemMgmt/addModifyRelationAmount.jsp</result>
+        </action>
+        <action name="deleteRelationAmount" class="systemMgmtAction"
+                method="deleteRelationAmount">
+            <result name="success" type="chain">listAllRelationAmounts</result>
+        </action>
+        <!--Relation Amount Management End-->
+       
+     
+       
+        <action name="initModifyPwd" class="systemMgmtAction" method="initModifyPwd">
+            <result name="success">
+            	/jsp/systemMgmt/modifyPassword.jsp
+            </result>
+        </action>
+        <action name="modifyLoginPwd" class="systemMgmtAction" method="modifyLoginPwd">
+            <result name="success">
+            	/jsp/systemMgmt/modifyPassword.jsp
+            </result>
+        </action>
+	    <action name="importFile">
+		        <result>/jsp/systemMgmt/importFile.jsp</result>
+	    </action>
+     
+    </package>
+</struts>

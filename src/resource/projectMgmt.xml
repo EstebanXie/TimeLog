@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="projectMgmt" namespace="/projectMgmt" extends="exceptionHandler">
+        <action name="listAllProjects" class="projectMgmtAction"
+                method="queryProjects">
+            <result name="success">/jsp/projectMgmt/listAllProjects.jsp</result>
+        </action>
+        <action name="toAddProjects" class="projectMgmtAction"
+                method="toAddProjects">
+            <result name="success">/jsp/projectMgmt/addModifyProject.jsp</result>
+        </action>
+        <action name="addProject" class="projectMgmtAction"
+                method="addProject">
+            <result name="success" type="chain">listAllProjects</result>
+        </action>
+        <action name="toModifyProject" class="projectMgmtAction"
+                method="toModifyProject">
+            <result name="success">/jsp/projectMgmt/addModifyProject.jsp</result>
+        </action>
+        <action name="modifyProject" class="projectMgmtAction"
+                method="modifyProject">
+            <result name="success" type="chain">listAllProjects</result>
+        </action>
+    </package>
+    
+</struts>

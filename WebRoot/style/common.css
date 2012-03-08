@@ -1,0 +1,197 @@
+﻿@charset "utf-8";
+body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, code,
+del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;}
+
+h1, h2, h3, h4, h5, h6 {font-weight: bold}
+
+ul, li {list-style-type: none}
+
+table {border-collapse: separate; border-spacing: 0}
+caption {text-align: left; font-weight:normal;}
+
+blockquote:before, blockquote:after, q:before, q:after {content: ""}
+blockquote, q {quotes: "" ""}
+
+a img {border: none}
+
+/*========================================
+	common style
+========================================*/
+body { background:#F1F1F1 Url(../images/MainBG.jpg) top repeat-x;  }
+.TopBG { background: none #E0E0E0;}
+.BottomBG { background-position:bottom;}
+.RightBG { background: none #FFFFFF; border-left:1px solid #E0E0E0; height:100%;}
+.LeftBG { background:#F7FBFE; margin:0; overflow:hidden;}
+body, td, th, p, input, button, select { color: BLACK;	font-size:12px;	font-family: Arial, Helvetica, sans-serif;}
+* html body, td, th, p, input, button, select {font: 12px; color:BLACK;}
+
+a {color: #727272; text-decoration: none}
+a:hover {color: #727272; text-decoration: none}
+a:active {color: #727272}
+input ,select { height:18px; line-height:20px; padding:0; border:1px solid #E0E0E0;}
+*html input, *html select { height:18px;}
+
+.Warp { margin: 0 auto 0 auto; clear:both; width:980px; }
+.Head { height:112px; background:Url(../images/top.jpg) center top no-repeat; width:100%; text-align:left; margin-top:10px;}
+.HeadNav { height:25px; background:Url(../images/Box.gif) top repeat-x; height:25px; width:980px; line-height:25px; color:#E0E0E0; padding:0;}
+	.HeadNav a { color:#CCCC00; padding:0 12px;}
+	.HeadNav a:hover { color:#E51051;}
+.UserInfo { float:left; padding:0 5px;}
+.HeadMenu { float:right; padding:0 5px;}
+	.HeadMenu a ,.HeadMenu span { display:block; float:left;}
+	.HeadMenu a { color:#E0E0E0;}
+	.HeadMenu a:hover { color:#FFF; cursor:pointer;}
+	.HeadMenu .current {  background:Url(../images/Box.gif) left -200px repeat-x; padding:0; padding-left:10px;}
+	.HeadMenu .current span { background:Url(../images/Box.gif) right -200px repeat-x;padding-right:10px; color:#727272;}
+
+.Main {height:1%; overflow:hidden!important; background:#E0E0E0; width:980px;}
+.LeftMenu { width:178px; border-left:1px solid #FFF; border-right:1px solid #FFF; background:#E0E0E0 Url(../images/LeftBG.jpg) top repeat-x;float:left;  height:1%; overflow:hidden!important;}
+/*	.LeftMain h1{ width:178px; height:30px; background:Url(../images/Box.gif) 0 -50px repeat-x; line-height:30px; font-weight:normal;}
+	.LeftMain h1 Span{ background-image:Url(../images/MenuIcon.gif);color:#FFF; background-repeat:no-repeat; padding-left:30px; display:block; }
+	h1.NavTit1 span{ background-position:10px -23px;}
+	h1.NavTit2 span{ background-position:10px -83px;}
+	h1.NavTit3 span{ background-position:10px -143px; }
+	h1.NavTit4 span{ background-position:10px -203px; }
+	h1.NavTit5 span{ background-position:10px -263px;}
+	h1.NavTit6 span{ background-position:10px -323px; }
+	h1.NavTit7 span{ background-position:10px -383px;}
+	h1.NavTit8 span{ background-position:10px -443px; }
+	h1.NavTit9 span{ background-position:10px -545px;}
+	h1.NavTit10 span{ background-position:10px -605px; }
+	*/
+
+	
+	.LeftMain ul {  clear:both; padding:10px;}
+	.LeftMain li { height:25px; background:none;}
+	.LeftMain li a { padding-left:20px; background: Url(../images/Icon.gif) left -30px no-repeat; display:block; }
+	.LeftMain li a:hover { text-decoration:underline;}
+.LeftNav { clear:both; width:178px; background:#E0E0E0 Url(../images/LeftBG.jpg) top repeat-x;}
+	.LeftNav h1 Span{  background-image:Url(../images/MenuIcon.gif); line-height:26px; background-repeat:no-repeat; padding-left:30px; display:block; height:26px; color:#DFDFDF;}
+	.LeftNav h1 { font-weight:normal; clear:both; height:26px; line-height:26px; background:Url(../images/Box.gif) 0 -100px repeat-x; cursor:pointer;}
+
+	.LeftNav div.LeftMain { background:none; height:auto;}	
+.LeftMain1,.LeftMain2,.LeftMain3,.LeftMain4,.LeftMain5,.LeftMain6,.LeftMain7,.LeftMain8,.LeftMain9,.LeftMain10{ clear:both; height:26px; line-height:26px; background:Url(../images/Box.gif) 0 -100px repeat-x; cursor:pointer;}
+	.LeftMain1{ background-position:10px 5px;}
+	.LeftMain2{ background-position:10px -55px;}
+	.LeftMain3{ background-position:10px -115px; }
+	.LeftMain4{ background-position:10px -175px; }
+	.LeftMain5{ background-position:10px -235px;}
+	.LeftMain6{ background-position:10px -295px; }
+	.LeftMain7{ background-position:10px -355px;}
+	.LeftMain8{ background-position:10px -415px; }
+	.LeftMain9{ background-position:10px -515px;}
+	.LeftMain10{ background-position:10px -575px; }
+	
+.LeftNav h1.current { height:30px; background:Url(../images/Box.gif) 0 -50px repeat-x; line-height:30px; font-weight:normal;}
+.LeftNav h1.current span {color:#FFFFFF; background-image:Url(../images/MenuIcon2.gif);}
+
+.RightMain { border-top:1px solid #518BDC;  height:100%; padding:0 20px; background:#FFFFFF Url(../images/Box.gif) 0 -470px repeat-x;}
+*html .RightMain { float:right;}
+
+.RightMain h1 { font-size:14px; line-height:35px; color:#727272; padding-left:20px; background: Url(../images/Icon.gif) 0 5px no-repeat; margin-bottom:10px; }
+
+ .AddTable , .ResultTable , .SearchTable , .OrgTable{ clear:both; margin-bottom:20px;}
+.SearchTable table , .AddTable table , .ResultTable table , .OrgTable table{ width:100%; clear:both; border:none; }
+.OrgTable th , .OrgTable td, .AddTable th , .AddTable td{ border-left:1px solid #FFFFFF; border-bottom:1px solid #FFFFFF; margin:1px; line-height:21px; color:#727272; padding:2px 5px;}
+	.AddTable th , .OrgTable th { background:#E0E0E0; text-align:right;}
+	.AddTable td , .OrgTable td{ background:#F1F1F1; vertical-align:middle;}
+	.ResultTable h1 , .AddTable h1 , .SearchTable h1 { background:#727272; color:#E0E0E0; font-size:12px; padding:0 10px; margin:0; font-weight:normal;}
+	.ResultTable h1 .Tit { float:left;}
+	.ResultTable h1 a { color:#F1f1f1;}
+	.ResultTable h1 a:hover { color:#FFF; text-decoration:underline;}
+
+	
+.SearchTable table, .ResultTable table { border-top:1px solid #E0E0E0; border-left:1px solid #E0E0E0;}
+	.SearchTable table a , .ResultTable table a { text-decoration:underline;}
+	.SearchTable th, .SearchTable td{ border-right:1px solid #E0E0E0; border-bottom:1px solid #E0E0E0; padding:2px 5px; }
+	.SearchTable th { background:#F1F1F1;text-align:right; vertical-align:middle;color:#727272;}
+	.ResultTable td , .SearchTable td { background:#FFF; vertical-align:middle;}
+
+ .ResultTable table { border-top:1px solid #E0E0E0; border-left:1px solid #E0E0E0;}
+ .ResultTable th , .ResultTable td { border-right:1px solid #E0E0E0; border-bottom:1px solid #E0E0E0; padding:2px 5px; color:#727272;}
+.ResultTable th { background:#F1F1F1; vertical-align:middle;}
+
+.OrgTable th , .OrgTable td{ color:#727272; padding:2px 5px;}
+
+
+.Bottom { background: Url(../images/bottom.jpg) center bottom no-repeat; height:87px; line-height:30px; margin:0; clear:both; color:#E0E0E0; text-align:center; margin-bottom:10px;}
+
+.LoginTopWarp { margin:10px 10px 0 10px; clear:both; background:Url(../images/HeadBG.gif) left -200px no-repeat;}
+.LoginTopWarp .Head { height:57px; background:Url(../images/HeadBG.gif) right -300px no-repeat; width:100%; text-align:left;}
+
+
+ .Rt { text-align:right}
+ .Lt { text-align:left;}
+
+
+
+
+
+.LoginBG { background:#F1F1F1 Url(../images/login.jpg) top no-repeat; height:100%; overflow:hidden!important;}
+.LoginWarp { height:100%; overflow:hidden!important; margin:0 auto; width:800px;}
+.LoginBox {height:100%; overflow:hidden!important;width:420px; color: #272726; padding:350px 0 100px 300px; }
+.LoginBox a { color: #FF6600; text-decoration:underline; white-space:nowrap;}
+	.LoginBox dl { height:100%; overflow:hidden!important;line-height:22px; padding:0 20px; padding-left:200px;}
+	.LoginBox dt { float:left; clear:left; padding:5px 0; text-align:right; width:60px;}
+	.LoginBox dd { padding:5px 0; clear:right; float:right;  }
+	.LoginBox dd input { width:120px;}
+	.LoginBox .LoginBtn a , .LoginBox .LoginBtn span { height:36px; display:block; color:#FFFFFF; text-decoration:none;}
+	.LoginBox .LoginBtn a{ background: Url(../images/Box.gif) left -250px no-repeat; padding-left:20px; }
+	.LoginBox .LoginBtn a span{ background: Url(../images/Box.gif) right -250px no-repeat; padding-right:20px; line-height:35px; white-space:nowrap;}
+
+.LoginInfo { clear:both; height:1%; overflow:hidden!important; padding:10px; line-height:160%;}	
+	.LoginInfo img { float:right;}
+.LoginAD {clear:both; height:1%; overflow:hidden!important; padding:10px;}
+
+.LoginBox .LoginBtn input {height:30px; width:71px;}
+.LoginBox h1 { font-weight:normal; text-align:left; margin-left:240px}
+
+.LeftSearch { width:298px; border-left:1px solid #FFF; border-right:1px solid #FFF; background:#E0E0E0 Url(../images/LeftBG.jpg) top repeat-x; margin:0; float:left;  height:100%; overflow:hidden!important;}
+.LeftSearch h1 {width:298px; height:30px; background:Url(../images/Box.gif) 0 -50px repeat-x; line-height:30px; font-weight:normal;}
+	.LeftSearch h1 Span{ background:Url(../images/MenuIcon.gif) 10px -477px no-repeat ;color:#FFF; padding-left:30px; display:block; }
+
+.search {clear: right; margin-top: 10px;  height:100%; overflow:hidden!important; padding:10px; border-bottom:1px #E0E0E0 solid;}
+	.search dt { float:left; text-align:right; width:80px; clear:left; padding:2px 5px; height:25px; height:1%; overflow:hidden!important;}
+	.search dd { line-height:22px; text-align:left; clear:right; padding:2px 5px; height:25px; height:1%; overflow:hidden!important;}
+		
+
+/* 自定义下拉选择框 */
+.selector {position: relative; height: 20px; line-height: 20px; background: Url(../images/Box.gif) top repeat-x;}
+	.selector a {display: block; color: #E0E0E0; padding: 0 20px 0 10px; background: Url(../images/Icon.gif) -120px right no-repeat;}
+	.selector a:hover {color: #FFFFFF; text-decoration: none}
+	.selector .items {position: absolute; left: -1px; top: 20px; padding: 3px 0; background: #f1f1f1; border: solid 1px #C0C0C0}
+	.selector .items a {white-space: nowrap; color:#727272; background:none;}
+	.selector .items a:hover {background:#727272;}
+
+.ResultList { padding: 10px;  height:100%; overflow:hidden!important;  border-top:1px solid #FFF;}
+	.ResultList table { width:100%; clear:both; border:none;}
+	.ResultList td { width:100%; clear:both; border:none; border:1px solid #FFF; border-top:none; border-collapse:collapse; background:#F1F1F1; line-height:25px;}
+		.ResultList td.Style2 { background:#fff;}
+	.ResultList th { line-height:30px;  border-bottom:1px solid #FFF;}
+	.ResultList a { padding:0 10px; display:block;}
+	.ResultList a:hover {background:#E0E0E0;}
+
+.whatsNews {background: Url(../images/whatsNews.gif) left 15px no-repeat; padding:10px 10px 10px 120px; height:1%; overflow:hidden!important;}
+	.whatsNews li { line-height:25px;}
+.timeIcon { background: Url(../images/Icon.gif) left -60px no-repeat; width:20px; height:21px; border:none; cursor:pointer;}
+.OpenIcon { background: Url(../images/Icon.gif) left -90px no-repeat; width:20px; height:21px; border:none; cursor:pointer;}
+.TableBtn { background: Url(../images/Box.gif) top repeat-x; height:20px; border:1px solid #727272; padding:0 5px; color: silver;}
+.DisableTableBtn { background: Url(../images/Box.gif) top repeat-x; height:20px; border:1px solid #727272; padding:0 5px; font-style:italic; font-weight:800; color:#FFFFFF;}
+.checkBox { border:none; height:auto;}
+.Alarm { color:#990000;}
+.ControlBar { text-align:right;}
+
+.ErrArea { margin-top:30px; margin-right:450px; line-height:20px;}
+.ErrArea p { color:#727272;}

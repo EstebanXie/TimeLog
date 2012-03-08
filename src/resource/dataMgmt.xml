@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="dataMgmt" namespace="/dataMgmt" extends="exceptionHandler">
+		<action name="initDataReportSearch" class="dataMgmtAction"
+			method="initTimeLogDate">
+			<result>
+				/jsp/dataMgmt/dataEnterSelect.jsp
+            </result>
+		</action>
+		<!-- add person report start -->
+
+		<action name="addTimeLogEnter" class="dataMgmtAction" method="initTimeLogEdit">
+			<result>
+				/jsp/dataMgmt/personTimeDataInput.jsp
+            </result>
+		</action>
+
+		<action name="savePersonTimeLogData" class="dataMgmtAction"
+			method="saveTimeLogEdit">
+			<result>
+				/jsp/dataMgmt/personTimeDataInput.jsp
+            </result>
+			<result name="input">
+				/jsp/dataMgmt/personTimeDataInput.jsp
+            </result>
+		</action>
+
+		<action name="deletePersonTimeLogData" class="dataMgmtAction"
+			method="deleteTimeLogEntry">
+			<result>
+				/jsp/dataMgmt/personTimeDataInput.jsp
+            </result>
+		</action>
+		<!-- File export and import operation -->
+		<action name="importFile" class="baseFileAction" method="importFile">
+			<result>/jsp/ImportExcel.jsp</result>
+			<!-- <param name="directory">/upload/mytest</param>
+			<param name="saveFileFlag">true</param> -->
+		</action>
+		<action name="exportFile" class="baseFileAction" method="exportFile">
+            <param name="contentType">application/octet-stream;charset=UTF-8</param>
+            <param name="contentDisposition">attachment;filename="export-data.xls"</param>
+        </action>
+
+
+		<!-- add person report end -->
+
+	</package>
+</struts>

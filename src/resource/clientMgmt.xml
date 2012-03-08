@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="clientMgmt" namespace="/clientMgmt" extends="exceptionHandler">
+        <action name="listAllClients" class="clientMgmtAction"
+                method="listAllEZClient">
+            <result name="success">/jsp/clientMgmt/listAllClients.jsp</result>
+        </action>
+        <action name="toAddClient" class="clientMgmtAction"
+                method="toAddClient">
+            <result name="success">/jsp/clientMgmt/addModifyClient.jsp</result>
+        </action>
+        <action name="addClient" class="clientMgmtAction"
+                method="addEZClient">
+            <result name="success" type="chain">listAllClients</result>
+        </action>        
+        <action name="toModifyClient" class="clientMgmtAction"
+                method="toModifyClient">
+            <result name="success">/jsp/clientMgmt/addModifyClient.jsp</result>
+        </action>
+        <action name="modifyClient" class="clientMgmtAction"
+                method="modifyEZClient">
+            <result name="success" type="chain">listAllClients</result>
+        </action>        
+        <action name="deleteClient" class="clientMgmtAction"
+                method="deleteEZClient">
+            <result name="success" type="chain">listAllClients</result>
+        </action>                        
+    </package>
+    
+</struts>

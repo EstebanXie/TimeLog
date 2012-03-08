@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    <bean id="userService" class="tig.timelog.service.impl.UserServiceImpl">
+    	<property name="userDao" ref="userDao"></property>
+    </bean>
+    <bean id="sysMgmtSerivce" class="tig.timelog.service.impl.SystemMgmtServiceImpl">
+    	<property name="sysMgmtDao" ref="sysMgmtDao"></property>
+    </bean>
+    <bean id="codeTableService" class="tig.timelog.service.impl.CodeTableServiceImpl">
+    	<property name="codeTableDao" ref="codeTableDao"></property>
+    </bean> 
+    <bean id="dataMgmtService" class="tig.timelog.service.impl.DataMgmtServiceImpl">
+    	<property name="dataMgmtDao" ref="dataMgmtDao"></property>
+    </bean>
+    <bean id="systemQueryService" class="tig.timelog.service.impl.SystemQueryServiceImpl">
+    	<property name="systemQueryDao" ref="systemQueryDao"></property>
+    </bean>
+    
+    <!-- project start -->
+    <bean id="projectMgmtService" class="tig.timelog.service.impl.ProjectMgmtServiceImpl">
+    	<property name="projectMgmtDao" ref="projectMgmtDao"></property>
+    </bean>
+     
+    <!-- project start -->
+     <bean id="clientMgmtService" class="tig.timelog.service.impl.EZClientService">
+    	<property name="clientDao" ref="clientMgmtDao"></property>
+     </bean>
+
+     <bean id="taskImportService" class="tig.timelog.service.impl.TaskImportServiceImpl">
+    	<property name="taskImportDao" ref="taskImportDao"></property>
+    	<property name="ezClientDao" ref="clientMgmtDao"></property>
+     </bean>
+
+</beans>

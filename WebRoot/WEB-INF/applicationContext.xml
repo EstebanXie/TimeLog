@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+ <bean id="propertyConfigurer"
+       class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+  <property name="location" value="classpath:/db.properties"/>
+ </bean>
+ <!--
+ <bean id="dataSource"
+       class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+  <property name="driverClassName">
+   <value>${mysql.jdbc.driver}</value>
+  </property>
+  <property name="url">
+   <value>${mysql.jdbc.url}</value>
+  </property>
+  <property name="username">
+   <value>${mysql.jdbc.username}</value>
+  </property>
+  <property name="password">
+   <value>${mysql.jdbc.password}</value>
+  </property>
+ </bean>
+
+ <bean id="dataSource"
+       class="org.springframework.jndi.JndiObjectFactoryBean">
+  <property name="jndiName">
+   <value>${iam.jndi.name}</value>
+  </property>
+ </bean>
+-->
+
+
+<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource" destroy-method="close">
+ <property name="driver" value="${mysql.jdbc.driver}" />
+    <property name="driverUrl" value="${mysql.jdbc.url}?user=${mysql.jdbc.username}&amp;password=${mysql.jdbc.password}" />
+    <property name="user" value="root" />
+    <property name="password" value="admin" />
+    <property name="houseKeepingSleepTime" value="90000" />
+    <property name="prototypeCount" value="2" />
+    <property name="maximumConnectionCount" value="10" />
+    <property name="minimumConnectionCount" value="1" />
+</bean>
+
+ <bean id="transactionManager"
+       class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  <property name="dataSource">
+   <ref bean="dataSource"/>
+  </property>
+ </bean>
+ 
+ <bean id="transactionInterceptor"
+       class="org.springframework.transaction.interceptor.TransactionInterceptor">
+  <property name="transactionManager">
+   <ref bean="transactionManager"/>
+  </property>
+  <property name="transactionAttributes">
+   <props>
+    <prop key="registerUser*">PROPAGATION_REQUIRED</prop>
+    <prop key="delete*">PROPAGATION_REQUIRED</prop>
+    <prop key="add*">PROPAGATION_REQUIRED</prop>
+    <prop key="update*">PROPAGATION_REQUIRED</prop>
+    <prop key="save*">PROPAGATION_REQUIRED</prop>
+    <prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+   </props>
+  </property>
+ </bean>
+ <bean id="autoproxy"
+       class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+  <property name="beanNames">
+   <list>
+    <value>*Service</value>
+    <value>batchUpdateSeriseNumber</value>
+   </list>
+  </property>
+  <property name="interceptorNames">
+   <list>
+    <value>transactionInterceptor</value>
+   </list>
+  </property>
+ </bean>
+</beans>
